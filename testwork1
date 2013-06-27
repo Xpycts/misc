@@ -13,6 +13,15 @@ function revert($str){
 }
 
 
+//если еще поизвращаться, то можно получить такое
+function revert($str){
+    $rev_str=array();
+    foreach (str_split($str) as $ch)
+        array_unshift($rev_str,$ch);
+    return implode("",$rev_str);
+}
+
+
 2) Нужно написать код, который бы выводил (в браузер/в консоль) числа от 1 до 100.
 Каждое число на новой строке.
 При этом:
