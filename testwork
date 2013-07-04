@@ -1,1 +1,8 @@
 1. Написать рекурсивную функцию вычисления факториала
+
+function factarial($x){
+    if ($x===0)
+        return 1;
+    else
+        return $x*factarial($x-1);
+}
