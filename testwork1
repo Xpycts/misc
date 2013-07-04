@@ -58,20 +58,20 @@ teaser, text). Пользователь имеет возможность пер
 
 Решение:
 CREATE TABLE customer (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT unsigned PRIMARY KEY AUTO_INCREMENT,
   email varchar(60) NOT NULL 
 )
 
 CREATE TABLE article (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT unsigned PRIMARY KEY AUTO_INCREMENT,
   title varchar(100) NOT NULL,
   teaser varchar(500),
   text TEXT
 )
 
 CREATE TABLE stats (  //запись в данной таблице будет свидетельствовать, что письмо было отправленно
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  email_id INT NOT NULL,
+  id INT unsigned PRIMARY KEY AUTO_INCREMENT,
+  email_id INT unsigned NOT NULL,
   open boolean DEFAULT false,
   link boolean DEFAULT false,
   buy boolean DEFAULT false
