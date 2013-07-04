@@ -71,7 +71,8 @@ CREATE TABLE article (
 
 CREATE TABLE stats (  //запись в данной таблице будет свидетельствовать, что письмо было отправленно
   id INT unsigned PRIMARY KEY AUTO_INCREMENT,
-  email_id INT unsigned NOT NULL,
+  customer_id INT unsigned NOT NULL,
+  article_id INT unsigned NOT NULL,
   open boolean DEFAULT false,
   link boolean DEFAULT false,
   buy boolean DEFAULT false
@@ -84,9 +85,13 @@ CREATE TABLE stats (  //запись в данной таблице будет �
 4. Выбрать пользователей, которые никогда не покупали статей
 5. Выбрать пользователей, которые купили больше 5 статей
 6. Выбрать пользователей, которые купили статьи с id = 3 и 4
+SELECT customer.* FROM customer JOIN stats ON customer.id=stats.customer_id WHERE stats.article_id=3 OR stats.article_id=4 GROUP BY customer.id;
+
 7. Выбрать статью, по которой чаще всех переходят по соотношению
 отправили/перешли
 8. Выбрать статью, которую больше всех купили (всего)
+SELECT stats.article_id, COUNT(article_id) as count FROM stats WHERE buy=true GROUP BY article_id ORDER BY count DESC LIMIT 1;
+
 5) Есть код:
 
 class a {
